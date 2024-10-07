@@ -11,3 +11,4 @@ landinfo = {
         }
     }
 }
+print()
