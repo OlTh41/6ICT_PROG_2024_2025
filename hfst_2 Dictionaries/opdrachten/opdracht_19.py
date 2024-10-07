@@ -25,3 +25,8 @@ vlucht_reservering_systeem = {
         # Meer passagiersvermeldingen...
     }
 }
+
+print("dag beste gebruiker, Waarmee kan ik u helpen?")
+print("1) boeken van een vlucht? ")#niveau 1
+print("2) Lijst van passagiers op de vlutch tonen.")#niveau 2
+keuze = input("welke optie selecteren")

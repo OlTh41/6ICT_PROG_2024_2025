@@ -25,6 +25,14 @@ laptop_config = {
     },
     "category": {"id": 4, "status": "laptopMETtouch"},
     "manufacturer": {"id": 2, "name": "LENOVO"},
-    "supplier": "???",
+    "supplier": {"id": ""},
     "supplier_2": {"id": 1, "name": "SignPost"}
 }
+laptop_config["assigned_to"]["created_at"]["date"] = "2021-11-09"
+print(laptop_config["assigned_to"])
+
+#niveau 2
+
+laptop_config["supplier"]["id"] = "1"
+laptop_config.pop("supplier_2")
+print(laptop_config["supplier"])
