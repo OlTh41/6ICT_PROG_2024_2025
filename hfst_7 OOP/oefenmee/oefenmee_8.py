@@ -1,33 +1,35 @@
-# Maak een klasse om het gebruiken van een led op RPi te vereenvoudigen.
-# Je kan de RPI via deze website simuleren: https://create.withcode.uk 
+import RPi.GPIO as GPIO
+import time
 
-" Startcode: "
+GPIO.setmode(GPIO.BCM)
 
-# # import raspberry pi GPIO module
-# import RPi.GPIO as GPIO
-# import time
+GPIO.setup(7, GPIO.OUT)
+GPIO.setup(5, GPIO.OUT)
 
-# # setup pin 7 & 31 as output
-# GPIO.setup(7, GPIO.OUT)
-# GPIO.setup(31, GPIO.OUT)
+GPIO.output(7, GPIO.HIGH)
+GPIO.output(5, GPIO.HIGH)
 
-# # Turn on pin 7 & 31
-# GPIO.output(7, GPIO.HIGH)
-# GPIO.output(31, GPIO.HIGH)
+class Led:
+    def __init__(self, pin):
+        self.pin = pin
+        GPIO.setup(self.pin, GPIO.OUT)
+
+    def aan(self):
+        GPIO.output(self.pin, GPIO.HIGH)
+
+    def uit(self):
+        GPIO.output(self.pin, GPIO.LOW)
+
+led_5 = Led(5)
+led_21 = Led(21)
+
+while True:
+    led_5.aan()
+    led_21.uit()
+    time.sleep(1)
+
+    led_5.uit()
+    led_21.aan()
+    time.sleep(1)
 
 
-" Via onderstaande code kan je de klasse Led testen. "
-
-# # Maak een led aan op pin 5 en pin 21
-# led_5 = Led(5)
-# led_21 = Led(21)
-
-# # Schakel de leds afwisselend aan/uit.
-# while True:
-#     led_5.aan()
-#     led_21.uit()
-#     time.sleep(1)
-
-#     led_5.uit()
-#     led_21.aan()
-#     time.sleep(1)
